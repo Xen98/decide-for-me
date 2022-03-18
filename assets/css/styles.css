@@ -1,0 +1,106 @@
+:root {
+    --primary-color: #151515;
+    --secundary-color: white;
+    --primary-color-light: #303030;
+    --green: #24FF00;
+  }
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--secundary-color);
+    height: 90vh;
+    margin: 0;
+}
+
+hr {
+    color: var(--secundary-color);
+}
+
+.title {
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+.text-box {
+    display: flex;
+    justify-content: center;
+}
+
+.text-box__input {
+    background-color: var(--primary-color-light);
+    border: none;
+    color: var(--secundary-color);
+    border-radius: 50px;
+    padding: 15px 10px 15px 10px;
+    width: 50%;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.answers__dots {
+    margin-top: 150px;
+    padding: 0 50px 0 50px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.dot {
+    height: 20px;
+    width: 20px;
+    background-color: var(--secundary-color);
+    border-radius: 50%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.dot--green {
+    background-color: var(--green);
+}
+
+.win {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.win__text {
+    font-size: 2rem;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+}
+
+.choice {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+}
+
+.choice__container {
+    background-color: var(--secundary-color);
+    border-radius: 50px;
+    width: 80px;
+    padding: 10px 30px 10px 30px;
+    cursor: pointer;
+}
+
+.choice__button {
+    text-decoration: none;
+    color: var(--primary-color);   
+    font-size: 1.3rem; 
+}
+
+@media screen and (max-width: 900px) {
+    .text-box__input {
+        width: 80%;
+    }
+}
