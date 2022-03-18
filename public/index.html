@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/favicon.svg" type="image/x-icon">
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,44 +20,45 @@
     <title>Decide for me</title>
 </head>
 <body>
-    <div class="top">
-        <header>
-            <div class="title">
-                <h1 class="text__title">Decide for me</h1>
-            </div>
-        </header>
-        <main>
-            <div class="text-box">
-                <div class="text-box__container">
-                    <input id="input" class="text-box__input" type="text" placeholder="Write something...">
-                    <div id="add" class="add__contaier">
-                        <i class="fa-solid fa-plus add__icon"></i>
-                    </div>
+    <header>
+        <div class="title">
+            <h1 id="title_text" class="text__title"><!-- Texto desde JS --></h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="text-box">
+            <div class="text-box__container">
+                <input id="input" class="text-box__input" type="text"> <!-- Placeholder desde JS -->
+                <div id="add" class="add__contaier">
+                    <i class="fa-solid fa-plus add__icon"></i>
                 </div>
             </div>
-            <div class="answers">
-                <ol id="answers-dots" class="answers__dots">
-    
-                </ol>
+        </div>
+        
+        <div class="options">
+            <div class="choice">
+                <div class="choice__container" id="choice_button">
+                    <i class="choice__icon fa-solid fa-dice"></i>
+                </div>
             </div>
-            <div class="win">
-                <p id="win" class="win__text"></p>
-            </div>
-        </main>
-    </div>
-    <div class="bottom">
-        <hr>
-        <div class="choice">
-            <div class="choice__container" id="choice_button">
-                <i class="choice__icon fa-solid fa-dice"></i>
+            <div class="reset">
+                <div id="reset_button" class="reset__container">
+                    <!-- Texto desde JS -->
+                </div>
             </div>
         </div>
-        <div class="reset">
-            <div id="reset" class="reset__container">
-                Reset
-            </div>
+
+        <div class="win">
+            <p id="win" class="win__text"></p>
         </div>
-    </div>
+        <div class="answers">
+            <ol id="answers-dots" class="answers__dots">
+
+            </ol>
+        </div>
+        
+    </main>
     
     <script type="module" src="assets/js/app.js"></script>
 </body>

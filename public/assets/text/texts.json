@@ -1,0 +1,12 @@
+{
+    "english": {
+        "title": "Decide for me",
+        "placeholder": "Write something...",
+        "reset": "Reset"
+    },
+    "spanish": {
+        "title": "Decide por mi",
+        "placeholder": "Escribe algo...",
+        "reset": "Reiniciar"
+    }
+}
