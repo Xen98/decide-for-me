@@ -1,9 +1,21 @@
-import { answerDot } from "./register.js";
-
 const answersArray = [];
-const input = document.getElementById('input');
-const choice_button = document.getElementById('choice_button');
+
+const addInput = document.getElementById('input');
+const addButton = document.getElementById('add');
+const choiceButton = document.getElementById('choice_button');
 const win = document.getElementById('win');
+const resetButton = document.getElementById('reset');
+const answersList = document.getElementById('answers-dots');
+
+const answerDot = (id) => {
+    console.log(id);
+    let li = document.createElement("li");
+
+    li.classList.add('dot');
+    li.setAttribute('id', `dot-${id}`);
+
+    answersList.appendChild(li);
+}
 
 const deleteWin = () => {
     const winGreen = document.querySelector('.dot--green');
@@ -14,15 +26,24 @@ const deleteWin = () => {
     }
 }
 
-input.addEventListener('keyup', (event) => {
-    if (event.key === "Enter") {
-        answersArray.push(input.value);
-        answerDot(answersArray.length);
-        input.value = '';
-    }
-})
+const addChoice = () => {
+    if (addInput.value != '') {
 
-choice_button.addEventListener('click', (event) => {
+        answersArray.push(addInput.value);
+        answerDot(answersArray.length);
+        addInput.value = '';
+    }
+}
+
+addInput.addEventListener('keyup', (event) => {
+    if (event.key === "Enter") {
+        addChoice();
+    }
+});
+
+addButton.addEventListener('click', addChoice);
+
+choiceButton.addEventListener('click', (event) => {
     if (answersArray.length >= 1) {
         deleteWin();
 
@@ -31,12 +52,21 @@ choice_button.addEventListener('click', (event) => {
     
         const id = Math.floor(Math.random() * (max - min)) + min;
     
-        console.log(answersArray[id]);
         win.innerText = answersArray[id];
     
         let dotWin = document.getElementById(`dot-${id+1}`);
         dotWin.classList.add('dot--green');
     }
+});
+
+resetButton.addEventListener('click', (event) => {
+    answersArray.length = 0;
+
+    while (answersList.firstChild) {
+        answersList.removeChild(answersList.firstChild);
+    }
+
+    win.innerText = '';
 });
 
 

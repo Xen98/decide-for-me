@@ -10,38 +10,54 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> 
+    
 
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/dbec4d7656.js" crossorigin="anonymous"></script>
 
     <title>Decide for me</title>
 </head>
 <body>
-    <header>
-        <div class="title">
-            <h1 class="text__title">Decide for me</h1>
-        </div>
-    </header>
-    <main>
-        <div class="text-box">
-            <input id="input" class="text-box__input" type="text" placeholder="Write something...">
-        </div>
-        <div class="answers">
-            <ol id="answers-dots" class="answers__dots">
-
-            </ol>
-        </div>
-        <div class="win">
-            <p id="win" class="win__text"></p>
-        </div>
-        <div class="bottom">
-            <hr>
-            <div class="choice">
-                <div class="choice__container" id="choice_button">
-                    <a href="#" class="choice__button">GO!</a>
+    <div class="top">
+        <header>
+            <div class="title">
+                <h1 class="text__title">Decide for me</h1>
+            </div>
+        </header>
+        <main>
+            <div class="text-box">
+                <div class="text-box__container">
+                    <input id="input" class="text-box__input" type="text" placeholder="Write something...">
+                    <div id="add" class="add__contaier">
+                        <i class="fa-solid fa-plus add__icon"></i>
+                    </div>
                 </div>
             </div>
+            <div class="answers">
+                <ol id="answers-dots" class="answers__dots">
+    
+                </ol>
+            </div>
+            <div class="win">
+                <p id="win" class="win__text"></p>
+            </div>
+        </main>
+    </div>
+    <div class="bottom">
+        <hr>
+        <div class="choice">
+            <div class="choice__container" id="choice_button">
+                <i class="choice__icon fa-solid fa-dice"></i>
+            </div>
         </div>
-    </main>
+        <div class="reset">
+            <div id="reset" class="reset__container">
+                Reset
+            </div>
+        </div>
+    </div>
     
     <script type="module" src="assets/js/app.js"></script>
 </body>
