@@ -1,5 +1,6 @@
 const answersArray = [];
 const lang = navigator.language;
+let lightColor = false;
 
 const addInput = document.getElementById('input');
 const addButton = document.getElementById('add');
@@ -32,6 +33,7 @@ const setText = textLang => {
 }
 
 const changeColor = () => {
+    lightColor = !lightColor;
     iconColor.classList.toggle('fa-moon');
     iconColor.classList.toggle('fa-sun');
     body.classList.toggle('light-mode');
@@ -44,13 +46,40 @@ const changeColor = () => {
     addInput.classList.toggle('bg-light2');
     addInput.classList.toggle('color-dark');
     resetButton.classList.toggle('pink');
+
+    const dotsLight = document.querySelectorAll('.dot');
+    dotsLight.forEach(dot => {
+        dot.classList.toggle('dot--light');
+    });
+
+    const dotsDark = document.querySelectorAll('.dot');
+
+    dotsDark.forEach(dot => {
+        dot.classList.toggle('dot--dark')
+    });
+
+    const winGreen = document.querySelector('.dot--green');
+    const winPink = document.querySelector('.dot--pink');
+
+    const win = winGreen || winPink;
+
+    if (win) {
+        win.classList.toggle('dot--green');
+        win.classList.toggle('dot--pink');
+    }
 }
 
 const answerDot = (id) => {
-    console.log(id);
     let li = document.createElement("li");
 
     li.classList.add('dot');
+    
+    if (!lightColor) {
+        li.classList.add('dot--dark');
+    } else {
+        li.classList.add('dot--light');
+    }
+
     li.setAttribute('id', `dot-${id}`);
 
     answersList.appendChild(li);
@@ -58,10 +87,14 @@ const answerDot = (id) => {
 
 const deleteWin = () => {
     const winGreen = document.querySelector('.dot--green');
+    const winPink = document.querySelector('.dot--pink');
 
-    if(winGreen) {
-        console.log(winGreen);
+    if (winGreen) {
         winGreen.classList.remove('dot--green');
+    }
+
+    if (winPink) {
+        winPink.classList.remove('dot--pink');
     }
 }
 
@@ -96,34 +129,62 @@ choiceButton.addEventListener('click', (event) => {
         win.innerText = answersArray[id];
     
         let dotWin = document.getElementById(`dot-${id+1}`);
-        dotWin.classList.add('dot--green');
+        
+        if (!lightColor) {
+            dotWin.classList.add('dot--green');
+        } else {
+            dotWin.classList.add('dot--pink');
+        }
     }
 });
 
 addButton.addEventListener('touchstart', () => {
-    addButton.classList.add('touch-add');
-})
+    if (!lightColor) {
+        addButton.classList.add('touch-add');
+    } else {
+        addButton.classList.add('touch-add-light');
+    }    
+});
 
 addButton.addEventListener('touchend', () => {
-    addButton.classList.remove('touch-add');
-})
-
+    if (!lightColor) {
+        addButton.classList.remove('touch-add');        
+    } else {
+        addButton.classList.remove('touch-add-light');
+    }
+});
 
 choiceButton.addEventListener('touchstart', () => {
-    choiceButton.classList.add('touch-choice');
-})
+    if (!lightColor) {
+        choiceButton.classList.add('touch-choice');
+    } else {
+        choiceButton.classList.add('touch-choice-light');
+    }
+});
 
 choiceButton.addEventListener('touchend', () => {
-    choiceButton.classList.remove('touch-choice');
-})
+    if (!lightColor) {
+        choiceButton.classList.remove('touch-choice');
+    } else {
+        choiceButton.classList.remove('touch-choice-light');
+    }
+});
 
 resetButton.addEventListener('touchstart', () => {
-    resetButton.classList.add('touch-reset');
-})
+    if (!lightColor) {
+        resetButton.classList.add('touch-reset');
+    } else {
+        resetButton.classList.add('touch-reset-light');
+    }
+});
 
 resetButton.addEventListener('touchend', () => {
-    resetButton.classList.remove('touch-reset');
-})
+    if (!lightColor) {
+        resetButton.classList.remove('touch-reset');
+    } else {
+        resetButton.classList.remove('touch-reset-light');
+    }
+});
 
 resetButton.addEventListener('click', (event) => {
     answersArray.length = 0;
