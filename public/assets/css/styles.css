@@ -1,8 +1,10 @@
 :root {
     --primary-color: #151515;
-    --secundary-color: white;
+    --secundary-color: #FFFFFF;
     --primary-color-light: #303030;
+    --secundary-color-light: #EBEBEB;
     --green: #24FF00;
+    --pink: #B3007B;
 }
 
 * {
@@ -23,6 +25,22 @@ hr {
     margin: 0;
 }
 
+.color-mode {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-top: 30px;
+    margin-right: 30px;
+}
+
+.color-mode__button {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .title {
     text-align: center;
     font-size: 1.7rem;
@@ -34,7 +52,6 @@ hr {
 }
 
 .text-box__container {
-    background-color: var(--primary-color-light);
     border-radius: 50px;
     width: 50%;
     display: flex;
@@ -42,32 +59,33 @@ hr {
 }
 
 .text-box__input {
+    background-color: var(--primary-color-light);
     padding: 15px 30px 15px 30px;
-    background-color: transparent;
     border: none;
     color: var(--secundary-color);
     font-size: 1.3rem;
+    outline: none;
 
     width: 90%;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
 }
 
-.add__contaier {
+.add__container {
     width: 10%;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-    background-color: var(--green);
+    background-color: var(--secundary-color);
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     -webkit-tap-highlight-color: transparent;
+    color: var(--primary-color-light);
 }
 
 .add__icon {
     font-size: 1.8rem;
-    color: var(--primary-color-light);
 }
 
 .options {
@@ -95,9 +113,15 @@ hr {
     justify-content: center;
     align-items: center;
     -webkit-tap-highlight-color: transparent;
+    color: var(--primary-color);
 }
 
 /* Clase para Hover en Touch */
+.touch-add {
+    background-color: var(--green);
+}
+
+
 .touch-choice {
     background-color: var(--green);
 }
@@ -111,14 +135,27 @@ hr {
     .choice__container:hover {
         background-color: var(--green);
     }
+    .choice__container.pink:hover {
+        background-color: var(--pink);
+    }
+
     .reset__container:hover {
         color: var(--green);
+    }
+    .reset__container.pink:hover {
+        color: var(--pink);
+    }
+
+    .add__container:hover {
+        background-color: var(--green);
+    }
+    .add__container.pink:hover {
+        background-color: var(--pink);
     }
 }
 
 .choice__icon {
     text-decoration: none;
-    color: var(--primary-color);   
     font-size: 2rem; 
 }
 
@@ -167,12 +204,37 @@ hr {
     font-size: 2rem;
 }
 
+.light-mode {
+    background-color: var(--secundary-color);
+    color: var(--primary-color);
+}
+
+.bg-dark {
+    background-color: var(--primary-color);
+}
+
+.bg-light {
+    background-color: var(--secundary-color);
+}
+
+.bg-light2 {
+    background-color: var(--secundary-color-light);
+}
+
+.color-dark {
+    color: var(--primary-color);
+}
+
+.color-light {
+    color: var(--secundary-color);
+}
+
 @media screen and (max-width: 900px) {
     .text-box__container {
         width: 80%;
     }
 
-    .add__contaier {
+    .add__container {
         width: 20%;
     }
 }

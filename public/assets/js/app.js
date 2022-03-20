@@ -8,8 +8,9 @@ const win = document.getElementById('win');
 const resetButton = document.getElementById('reset_button');
 const answersList = document.getElementById('answers-dots');
 const title = document.getElementById('title_text');
-
-
+const colorMode = document.getElementById('color-button');
+const body = document.body;
+const iconColor = document.getElementById('icon-color');
 
 fetch('assets/text/texts.json')
   .then(response => response.json())
@@ -28,6 +29,21 @@ const setText = textLang => {
     title.innerHTML = textLang.title;
     addInput.placeholder = textLang.placeholder;
     resetButton.innerHTML = textLang.reset;
+}
+
+const changeColor = () => {
+    iconColor.classList.toggle('fa-moon');
+    iconColor.classList.toggle('fa-sun');
+    body.classList.toggle('light-mode');
+    addButton.classList.toggle('bg-dark');
+    addButton.classList.toggle('color-light');
+    addButton.classList.toggle('pink');
+    choiceButton.classList.toggle('bg-dark');
+    choiceButton.classList.toggle('color-light');
+    choiceButton.classList.toggle('pink');
+    addInput.classList.toggle('bg-light2');
+    addInput.classList.toggle('color-dark');
+    resetButton.classList.toggle('pink');
 }
 
 const answerDot = (id) => {
@@ -58,6 +74,8 @@ const addChoice = () => {
     }
 }
 
+colorMode.addEventListener('click', changeColor);
+
 addInput.addEventListener('keyup', (event) => {
     if (event.key === "Enter") {
         addChoice();
@@ -81,6 +99,15 @@ choiceButton.addEventListener('click', (event) => {
         dotWin.classList.add('dot--green');
     }
 });
+
+addButton.addEventListener('touchstart', () => {
+    addButton.classList.add('touch-add');
+})
+
+addButton.addEventListener('touchend', () => {
+    addButton.classList.remove('touch-add');
+})
+
 
 choiceButton.addEventListener('touchstart', () => {
     choiceButton.classList.add('touch-choice');
